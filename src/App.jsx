@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Die from "./Die";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
@@ -90,6 +90,11 @@ export default function App() {
     );
   }
 
+  const startGame = () => {
+    setIsPlaying(true)
+    rollDice()
+  }
+
   const diceElements = dice.map((die) => (
     <Die
       key={die.id}
@@ -118,7 +123,7 @@ export default function App() {
             {tenzies ? "New Game" : "Roll"}
           </button>
         ) : (
-          <button className="roll-dice" onClick={() => setIsPlaying(true)}>
+          <button className="roll-dice" onClick={startGame}>
             Start
           </button>
         )}
